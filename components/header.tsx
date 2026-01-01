@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Menu, X, Star, MapPin, Building, Palette, DollarSign, MoveUpRight } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 
 export default function Header() {
@@ -46,7 +47,7 @@ export default function Header() {
       {/* Barre de navigation */}
       <nav className="relative z-50 px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/assets/images/logo-sans-fond.png" // Remplace ce chemin par le tien si différent
               alt="Logo Joya Immo"
@@ -54,37 +55,31 @@ export default function Header() {
               height={40}
               className="rounded-lg"
             />
-          </div>
+          </Link>
 
           {/* Navigation Desktop */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
-              Vendre un Bien
+            <a href="/proprietes" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
+              Propriétés
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EADD8E] transition-all duration-300 group-hover:w-full" />
             </a>
-            <a href="#" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
-              Acheter un Bien
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EADD8E] transition-all duration-300 group-hover:w-full" />
-            </a>
-            <a href="#" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
-              Location
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EADD8E] transition-all duration-300 group-hover:w-full" />
-            </a>
-            <a href="#" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
+            <a href="/a-propos" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
               À Propos
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EADD8E] transition-all duration-300 group-hover:w-full" />
             </a>
-            <a href="#" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
-              Ressources
+            <a href="/proprietaire/dashboard" className="text-white hover:text-[#EADD8E] transition-all duration-300 font-medium relative group">
+              Propriétaire
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EADD8E] transition-all duration-300 group-hover:w-full" />
             </a>
           </div>
 
           {/* Bouton de connexion & Menu mobile */}
           <div className="flex items-center space-x-4">
-            <Button className="hidden sm:inline-flex bg-[#EADD8E] text-[#252525] hover:bg-[#A07539] hover:text-white transition-all duration-300 font-semibold px-6 py-2">
-              Connexion
-            </Button>
+            <a href="/connexion">
+              <Button className="hidden sm:inline-flex bg-[#EADD8E] text-[#252525] hover:bg-[#A07539] hover:text-white transition-all duration-300 font-semibold px-6 py-2">
+                Connexion
+              </Button>
+            </a>
 
             {/* Bouton Menu Mobile */}
             <button 
@@ -100,24 +95,20 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-[#252525]/95 backdrop-blur-md border-t border-[#EADD8E]/20">
             <div className="px-4 py-6 space-y-4">
-              <a href="#" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
-                Vendre un Bien
+              <a href="/proprietes" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
+                Propriétés
               </a>
-              <a href="#" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
-                Acheter un Bien
-              </a>
-              <a href="#" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
-                Location
-              </a>
-              <a href="#" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
+              <a href="/a-propos" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
                 À Propos
               </a>
-              <a href="#" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
-                Ressources
+              <a href="/proprietaire/dashboard" className="block text-white hover:text-[#EADD8E] transition-colors font-medium">
+                Propriétaire
               </a>
-              <Button className="w-full bg-[#EADD8E] text-[#252525] hover:bg-[#A07539] hover:text-white transition-all duration-300 font-semibold">
-                Connexion
-              </Button>
+              <a href="/connexion">
+                <Button className="w-full bg-[#EADD8E] text-[#252525] hover:bg-[#A07539] hover:text-white transition-all duration-300 font-semibold">
+                  Connexion
+                </Button>
+              </a>
             </div>
           </div>
         )}
